@@ -55,10 +55,11 @@ class test(threading.Thread):
             
             if answer:
                 break
+        
         #성공
-        finished = True
-        print('\n\n\n[{}][{}]성공!! 시도횟수: {}'.format(self.name,datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),attempt))
-        print('실행시간: {:.2f}초'.format(time.time() - start_time))
+        if not finished:
+            finished = True
+            print('\n\n\n[{}][{}]성공!! 시도횟수: {}'.format(self.name,datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),attempt))
         
         #모든 스레드 종료
         pid = os.getpid()
